@@ -1,0 +1,17 @@
+[
+    {
+        "name": "cpu_usage",
+        "min_value": 0,
+        "max_value": 100
+    },
+    {
+        "name": "memory_usage",
+        "min_value": 0,
+        "max_value": 100
+    },
+    {
+        "name": "disk_io",
+        "min_value": 0,
+        "max_value": 1000
+    }
+]
