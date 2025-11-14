@@ -7,7 +7,7 @@ export default function PanelSystemsMatrix({ position }) {
         <boxGeometry args={[2, 1, 0.5]} />
         <meshStandardMaterial color="orange" emissive="darkorange" />
       </mesh>
-      {/* TODO: Add infra health bars, auto-heal flows, particle animations */}
+      {/* TODO: Infra health bars, auto-heal flows, particle animations */}
     </group>
   );
 }

@@ -7,7 +7,7 @@ export default function PanelOmniCore({ position }) {
         <cylinderGeometry args={[1, 1, 0.5, 6]} />
         <meshStandardMaterial color="purple" emissive="violet" />
       </mesh>
-      {/* TODO: Add synaptic memory ribbons, evolution overlays, risk holograms */}
+      {/* TODO: Synaptic memory ribbons, evolution overlays, risk holograms */}
     </group>
   );
 }

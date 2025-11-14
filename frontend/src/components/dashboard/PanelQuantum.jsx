@@ -7,7 +7,7 @@ export default function PanelQuantum({ position }) {
         <circleGeometry args={[1, 32]} />
         <meshStandardMaterial color="cyan" emissive="cyan" />
       </mesh>
-      {/* TODO: Add multi-domain ribbons, probability holograms, critical overlays */}
+      {/* TODO: Multi-domain ribbons, probability holograms, critical overlays */}
     </group>
   );
 }

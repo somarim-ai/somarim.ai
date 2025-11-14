@@ -5,59 +5,69 @@ import * as THREE from 'three';
 export default function CognitionSphere({ position }) {
   const sphereRef = useRef();
   const nodesRef = useRef([]);
+  const ribbonsRef = useRef([]);
+  const fogRef = useRef();
 
   useEffect(() => {
-    // Initialize orbiting nodes
     nodesRef.current = Array.from({ length: 12 }, (_, i) => {
       const angle = (i / 12) * Math.PI * 2;
-      const x = 3 * Math.cos(angle);
-      const y = 3 * Math.sin(angle);
-      return new THREE.Vector3(x, y, 0);
+      return new THREE.Vector3(3 * Math.cos(angle), 3 * Math.sin(angle), 0);
     });
+
+    ribbonsRef.current = nodesRef.current.map(() => {
+      const geometry = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(0, 0, 0),
+      ]);
+      const material = new THREE.LineBasicMaterial({ color: 'cyan', transparent: true, opacity: 0.6 });
+      return new THREE.Line(geometry, material);
+    });
+
+    fogRef.current = new THREE.Mesh(
+      new THREE.SphereGeometry(7, 32, 32),
+      new THREE.MeshStandardMaterial({ color: 'blue', transparent: true, opacity: 0.05, side: THREE.DoubleSide })
+    );
   }, []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
-    // Rotate nodes around sphere
-    nodesRef.current.forEach((node, i) => {
-      const angle = t * 0.5 + (i / 12) * Math.PI * 2;
-      node.x = 3 * Math.cos(angle);
-      node.y = 3 * Math.sin(angle);
-      // This is a bit of a hack, we should be updating the mesh position directly
-      // but this will do for now to keep the code simple.
-      if(sphereRef.current.children[i+1]) {
-        sphereRef.current.children[i+1].position.set(node.x, node.y, node.z);
-      }
-    });
-    // Rotate central sphere slowly
+
     sphereRef.current.rotation.y += 0.001;
+
+    nodesRef.current.forEach((node, i) => {
+      node.x = 3 * Math.cos(t * 0.5 + (i / 12) * Math.PI * 2);
+      node.y = 3 * Math.sin(t * 0.5 + (i / 12) * Math.PI * 2);
+
+      const positions = ribbonsRef.current[i].geometry.attributes.position.array;
+      positions[0] = 0;
+      positions[1] = 0;
+      positions[2] = 0;
+      positions[3] = node.x;
+      positions[4] = node.y;
+      positions[5] = node.z;
+      ribbonsRef.current[i].geometry.attributes.position.needsUpdate = true;
+    });
   });
 
   return (
     <group position={position}>
-      {/* Central Sphere */}
       <mesh ref={sphereRef}>
         <sphereGeometry args={[2.5, 64, 64]} />
-        <meshStandardMaterial
-          color="deepskyblue"
-          transparent
-          opacity={0.5}
-          roughness={0.1}
-          metalness={0.5}
-        />
-        {/* Orbiting Nodes */}
-        {Array.from({ length: 12 }).map((_, i) => {
-            const angle = (i / 12) * Math.PI * 2;
-            const x = 3 * Math.cos(angle);
-            const y = 3 * Math.sin(angle);
-            return (
-                <mesh key={i} position={[x,y,0]}>
-                    <sphereGeometry args={[0.2, 32, 32]} />
-                    <meshStandardMaterial color="cyan" emissive="cyan" />
-                </mesh>
-            )
-        })}
+        <meshStandardMaterial color="deepskyblue" transparent opacity={0.5} roughness={0.1} metalness={0.5} />
       </mesh>
+
+      {nodesRef.current.map((pos, i) => (
+        <mesh key={i} position={pos}>
+          <sphereGeometry args={[0.2, 32, 32]} />
+          <meshStandardMaterial color="cyan" emissive="cyan" />
+        </mesh>
+      ))}
+
+      {ribbonsRef.current.map((line, i) => (
+        <primitive key={i} object={line} />
+      ))}
+
+      <primitive object={fogRef.current} />
     </group>
   );
 }

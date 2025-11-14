@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "meshline": "^3.3.1"
+  }
+}
