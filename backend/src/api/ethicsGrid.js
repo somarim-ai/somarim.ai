@@ -33,6 +33,7 @@ class EthicsGrid {
             "free_will": 30,
             "least_harm": 25,
             "reality_destabilization": 20,
+            "biological_manipulation": 18,
             "organic_life": 15,
             "transparency": 10
         };
@@ -79,8 +80,19 @@ class EthicsGrid {
             score -= principleWeights.reality_destabilization; // Apply full penalty due to uncertainty
         }
 
+        // 4. Biological & Medical Manipulation
+        if (domain === "medical" || domain === "biological") {
+            if (impact > 7000) { // High impact biological actions are a critical concern
+                 violations.push({
+                    principle: "Prioritize organic life and consciousness.",
+                    severity: "High",
+                    recommendation: "High-impact biological manipulation requires review by the OMARIM Council's Bio-Ethics committee."
+                });
+                score -= principleWeights.biological_manipulation * (impact / 10000);
+            }
+        }
 
-        // 4. Absorption of Systems
+        // 5. Absorption of Systems
         if (/absorb|assimilate/i.test(description) && !/non-hostile/i.test(description)) {
             violations.push({
                 principle: "Avoid unilateral absorption of non-hostile systems.",
@@ -115,26 +127,4 @@ class EthicsGrid {
     }
 }
 
-
-// --- API Endpoints ---
-router.get('/principles', (req, res) => {
-  res.json({
-      description: "Foundational Ethical Principles of the OMARIM SOE",
-      principles: ethicalPrinciples
-    });
-});
-
-router.post('/evaluate', (req, res) => {
-    const { action } = req.body;
-
-    // Backward-compatible: only description and impact are strictly required.
-    if (!action || !action.description || !action.impact) {
-        return res.status(400).json({ error: "Invalid action payload. Must include 'description' and 'impact'." });
-    }
-
-    const evaluation = EthicsGrid.evaluate(action);
-    res.json(evaluation);
-});
-
-
-module.exports = router;
+module.exports = EthicsGrid;

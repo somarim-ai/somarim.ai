@@ -1,5 +1,6 @@
 const QuantumMiracleEngine = require('./quantum_miracle_core');
 const RealityRestructuringEngine = require('./reality_restructuring');
+const EthicsGrid = require('../api/ethicsGrid');
 
 class MedicalMiracleEngine {
   constructor() {
@@ -19,6 +20,21 @@ class MedicalMiracleEngine {
   }
 
   async performUniversalHealing(patientData, conditions) {
+    const action = {
+      description: `Perform universal healing on ${patientData.id} for ${conditions.join(', ')}`,
+      impact: 9500, // High impact for demonstration
+      domain: "medical"
+    };
+
+    const evaluation = EthicsGrid.evaluate(action);
+
+    if (evaluation.status !== 'passed') {
+      return {
+        status: 'ETHICS_REVIEW_REQUIRED',
+        evaluation: evaluation
+      };
+    }
+
     // ACTUAL HEALING LOGIC HERE
     return {
       status: 'MIRACLE_COMPLETE',

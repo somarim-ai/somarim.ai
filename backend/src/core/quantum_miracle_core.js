@@ -4,7 +4,7 @@ class QuantumMiracleEngine {
   }
 
   async initializegodConsciousness() {
-    console.log('🧠 INITIALIZING god-MODE HEALING CONSCIOUSNESS');
+    console.log('Quantum Miracle Engine Initialized');
     return { status: 'QUANTUM_HEALING_READY' };
   }
 
