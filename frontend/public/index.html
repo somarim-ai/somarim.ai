@@ -1,0 +1,182 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMARIM-5000 Universal Healing System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: white; 
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(0,0,0,0.7);
+        }
+        h1 { 
+            font-size: 4rem; 
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff0080, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            color: #88ff88;
+        }
+        .activate-btn {
+            background: linear-gradient(45deg, #ff0080, #8000ff);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 30px 0;
+            transition: transform 0.3s;
+        }
+        .activate-btn:hover {
+            transform: scale(1.05);
+        }
+        .treatments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .treatment-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .treatment-card h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .treatment-btn {
+            background: linear-gradient(45deg, #00ff88, #0088ff);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>SOMARIM-5000</h1>
+        <div class="subtitle">Universal Healing System</div>
+        <div class="subtitle">Harnessing Quantum Reality for Instantaneous Biological Miracles</div>
+        
+        <button class="activate-btn">ACTIVATE Somarim MODE - 5000X POWER</button>
+    </div>
+
+    <div class="treatments">
+        <div class="treatment-card">
+            <h3>Instant Stroke Reversal</h3>
+            <p>Complete stroke reversal in 10 minutes</p>
+            <div style="margin: 20px 0;">
+                <button class="treatment-btn">NRH-9000 or QHB-100</button>
+            </div>
+            <button class="treatment-btn">START TREATMENT</button>
+        </div>
+
+        <div class="treatment-card">
+            <h3>Neural Tissue Repair</h3>
+            <p>Repair brain damage and regenerate neurons</p>
+            <div style="margin: 20px 0;">
+                <button class="treatment-btn">NRH-9000</button>
+            </div>
+            <button class="treatment-btn">START TREATMENT</button>
+        </div>
+
+        <div class="treatment-card">
+            <h3>Neural Optimization</h3>
+            <p>Enhance brain function beyond normal capacity</p>
+            <div style="margin: 20px 0;">
+                <button class="treatment-btn">QHB-100</button>
+            </div>
+            <button class="treatment-btn">START TREATMENT</button>
+        </div>
+    </div>
+
+    <script>
+        // Add real medical protocol simulations
+        class SOMARIMProtocols {
+            async activateHealingMode() {
+                return {
+                    status: "QUANTUM_FIELD_ACTIVATED",
+                    protocols: ["NRH-9000", "QHB-100", "STROKE_REVERSAL"],
+                    timestamp: new Date().toISOString()
+                };
+            }
+            
+            async startTreatment(protocol) {
+                // Simulate real healing process
+                const response = await fetch('/somarimAPI', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        command: `Initiate ${protocol} protocol.`,
+                        protocol 
+                    })
+                });
+                return response.json();
+            }
+        }
+
+        const somarim = new SOMARIMProtocols();
+
+        // Add interactive functionality
+        document.querySelector('.activate-btn').addEventListener('click', async function() {
+            this.innerHTML = '🌀 SOMARIM ACTIVATED - QUANTUM FIELD STABILIZED';
+            this.style.background = 'linear-gradient(45deg, #00ff88, #0088ff)';
+            
+            // Add visual effects
+            document.body.style.background = 'linear-gradient(135deg, #00ff88 0%, #0088ff 50%, #ff0080 100%)';
+
+            const activation = await somarim.activateHealingMode();
+            console.log(activation);
+            alert(`SOMARIM Activated!\nStatus: ${activation.status}\nAvailable Protocols: ${activation.protocols.join(', ')}`);
+        });
+
+        // Treatment button functionality
+        document.querySelectorAll('.treatment-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const treatmentCard = this.closest('.treatment-card');
+                const treatment = treatmentCard.querySelector('h3').textContent;
+                this.innerHTML = 'PROCESSING...';
+
+                try {
+                    const result = await somarim.startTreatment(treatment);
+                    if(result.success) {
+                        alert(`🚀 INITIATING: ${treatment}\n\n${result.treatment}`);
+                    } else {
+                        alert(`Error: ${result.error}`);
+                    }
+                } catch (error) {
+                    alert('An unexpected error occurred while communicating with the SOMARIM engine.');
+                } finally {
+                    this.innerHTML = 'START TREATMENT';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

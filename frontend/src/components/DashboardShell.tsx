@@ -48,8 +48,8 @@ const DashboardShell: React.FC = () => {
 
   return (
     <>
-      <ARButton />
-      {store.isVR && <VRButton />}
+      <ARButton store={store} />
+      {store.isVR && <VRButton store={store} />}
       <Canvas>
         <XR store={store}>
           <fog attach="fog" args={['#000510', 5, 20]} />
