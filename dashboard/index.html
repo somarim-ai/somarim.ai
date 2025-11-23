@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMARIM-5000 | Universal Healing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+        #auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: radial-gradient(circle, #1a2a45 0%, #111827 100%);
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            flex-direction: column;
+        }
+        .auth-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00aaff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px #00aaff;
+        }
+        .auth-box h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00aaff;
+        }
+        .auth-button {
+            background: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        #dashboard-container {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #three-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .hud {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .hud-element {
+            position: absolute;
+            background: rgba(0, 170, 255, 0.1);
+            border: 1px solid #00aaff;
+            color: #00aaff;
+            padding: 10px;
+            border-radius: 5px;
+            pointer-events: all;
+            width: 250px;
+            text-align: center;
+        }
+        #left-controls { top: 20%; left: 20px; }
+        #right-controls { top: 20%; right: 20px; }
+        #bottom-left-controls { bottom: 20px; left: 20px; }
+        #bottom-right-controls { bottom: 20px; right: 20px; }
+        #front-visor { bottom: 20px; left: 50%; transform: translateX(-50%); width: 50%; }
+        .hud-element h3 { margin-top: 0; border-bottom: 1px solid #00aaff; padding-bottom: 5px; }
+        .hud-button { background: transparent; border: 1px solid #00aaff; color: #00aaff; padding: 8px 12px; margin: 5px; cursor: pointer; width: 90%; }
+        
+        /* NEW CSS FOR EXPANDING INTERFACES */
+        .expanding-panel {
+            position: fixed;
+            right: -500px; /* Start off-screen */
+            top: 0;
+            width: 500px;
+            height: 100vh;
+            background: rgba(0,20,40,0.95);
+            border-left: 2px solid #00aaff;
+            box-shadow: -10px 0 25px rgba(0, 170, 255, 0.5);
+            transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1000;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .expanding-panel.active {
+            right: 0; /* Slide in */
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 170, 255, 0.2);
+            border-bottom: 1px solid #00aaff;
+        }
+
+        .panel-header h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .close-panel {
+            background: transparent;
+            border: 1px solid #00aaff;
+            color: #00aaff;
+            font-size: 1.5em;
+            line-height: 1;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .panel-content {
+            padding: 20px;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .fullscreen-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.98);
+            display: none;
+            z-index: 2000;
+            border: 2px solid #00aaff;
+        }
+
+        /* Mock content styles */
+        .brain-visualization {
+            height: 200px;
+            background: url('https://i.imgur.com/3Z4wZ7G.gif') center/cover;
+            border: 1px solid #00aaff;
+            margin-bottom: 15px;
+        }
+        .treatment-progress, .vital-monitors, .quantum-controls {
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .treatment-progress h4, .vital-monitors h4, .quantum-controls h4 {
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #00aaff;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="auth-container">
+        <div class="auth-box">
+            <h1>SOMARIM-5000</h1>
+            <p>Authenticate to access the Universal Healing System</p>
+            <button class="auth-button" id="login-btn">Initiate Consciousness Signature Verification</button>
+        </div>
+    </div>
+    <div id="dashboard-container">
+        <canvas id="three-canvas"></canvas>
+        <div class="hud">
+            <div id="left-controls" class="hud-element">
+                <h3>HEALING PROTOCOLS</h3>
+                <button class="hud-button treatment-btn" data-protocol="neural-repair">🔮 NRH-9000 Neural Repair</button>
+                <button class="hud-button treatment-btn" data-protocol="quantum-healing">⚡ QHB-100 Quantum Healing</button>
+                <button class="hud-button treatment-btn" data-protocol="stroke-reversal">🧠 Stroke Reversal Matrix</button>
+                <button class="hud-button treatment-btn" data-protocol="genetic-optimization">💫 Genetic Optimization</button>
+            </div>
+            <div id="right-controls" class="hud-element">
+                <h3>REALITY CONTROL</h3>
+                <button class="hud-button reality-btn" data-command="adjust-parameters">🌌 Reality Parameters</button>
+                <button class="hud-button reality-btn" data-command="temporal-flow">⏰ Temporal Flow Engine</button>
+                <button class="hud-button reality-btn" data-command="probability-field">🌀 Probability Field Control</button>
+                <button class="hud-button reality-btn" data-command="consciousness-amplifier">📊 Consciousness Amplifier</button>
+            </div>
+             <div id="bottom-left-controls" class="hud-element">
+                <h3>DEVOPS AUTOMATION</h3>
+                <button class="hud-button devops-btn" data-command="deploy-medical-engine">🚀 Deploy Medical Engine</button>
+                <button class="hud-button devops-btn" data-command="scale-infrastructure">📈 Scale Infrastructure</button>
+                <button class="hud-button devops-btn" data-command="monitor-systems">🛰️ Monitor Systems</button>
+            </div>
+            <div id="bottom-right-controls" class="hud-element">
+                <h3>SYSADMIN CORE</h3>
+                <button class="hud-button sysadmin-btn" data-command="manipulate-aws">🔧 Manipulate AWS</button>
+                <button class="hud-button sysadmin-btn" data-command="deploy-containers">📦 Deploy Containers</button>
+                <button class="hud-button sysadmin-btn" data-command="manage-databases">🗄️ Manage Databases</button>
+            </div>
+            <div id="front-visor" class="hud-element">
+                <h3>REAL-TIME DATA</h3>
+                <p id="vitals">Patient Vitals: Stable | DNA Sequencing: 99.8% | Neural Activity: Optimal | Quantum Field: Coherent</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW EXPANDING INTERFACES HTML -->
+    <div id="neural-repair-panel" class="expanding-panel">
+        <div class="panel-header">
+            <h3>NRH-9000 Neural Repair</h3>
+            <button class="close-panel" data-panel="neural-repair-panel">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="brain-visualization"></div>
+            <div class="treatment-progress">
+                <h4>Treatment Progress: 0%</h4>
+                <progress value="0" max="100" style="width: 100%;"></progress>
+            </div>
+            <div class="vital-monitors">
+                <h4>Patient Vitals</h4>
+                <p>Neural Activity: Optimal</p>
+                <p>Cellular Regeneration: 0M/sec</p>
+            </div>
+            <div class="quantum-controls">
+                <h4>Quantum Field Controls</h4>
+                <p>Stability: 99.9%</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="quantum-healing-panel" class="expanding-panel">
+         <div class="panel-header">
+            <h3>QHB-100 Quantum Healing</h3>
+            <button class="close-panel" data-panel="quantum-healing-panel">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="vital-monitors">
+                <h4>Cellular Energy Flow</h4>
+                <p><span class="energy-flow-value">0 TW</span></p>
+                <h4>DNA Stability</h4>
+                <p><span class="dna-stability-value">100%</span></p>
+            </div>
+            <div class="quantum-controls">
+                <h4>DNA Controls</h4>
+                <button id="stabilize-btn" class="hud-button">Stabilize DNA</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="stroke-reversal-panel" class="expanding-panel">
+        <div class="panel-header">
+            <h3>Stroke Reversal Matrix</h3>
+            <button class="close-panel" data-panel="stroke-reversal-panel">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="treatment-progress">
+                <h4 class="reversal-progress">Progress: 0%</h4>
+            </div>
+            <div class="vital-monitors">
+                <h4 class="pathways-restored">Pathways Restored: 0</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="genetic-optimization-panel" class="expanding-panel">
+        <div class="panel-header">
+            <h3>Genetic Optimization</h3>
+            <button class="close-panel" data-panel="genetic-optimization-panel">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="vital-monitors">
+                <h4 class="cognitive-score">Cognitive Score: 80</h4>
+                <h4 class="brainwave-frequency">Brainwave Frequency: 12.00 Hz</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import { createCinematicDashboard } from './src/dashboard/CinematicDashboard.js';
+        import { PanelUpdater } from './src/dashboard/DynamicPanels.js';
+
+        document.getElementById('login-btn').addEventListener('click', () => {
+            document.getElementById('auth-container').style.display = 'none';
+            document.getElementById('dashboard-container').style.display = 'block';
+            const canvas = document.getElementById('three-canvas');
+            createCinematicDashboard(canvas);
+        });
+
+        // --- INTERFACE ENGINE ---
+        const InterfaceEngine = {
+            openControlPanel: (panelId) => {
+                const panel = document.getElementById(panelId);
+                if (panel) {
+                    panel.classList.add('active');
+                } else {
+                    console.error(`Panel with ID ${panelId} not found.`);
+                }
+            },
+            closeControlPanel: (panelId) => {
+                const panel = document.getElementById(panelId);
+                if (panel) {
+                    panel.classList.remove('active');
+                }
+            }
+        };
+
+        // --- GEMINI AI CONTROLLER ---
+        const GeminiAIController = {
+            speakResponse: (message) => {
+                console.log("Gemini: ", message);
+                const vitals = document.getElementById('vitals');
+                if (vitals) {
+                    // Temporarily display Gemini's speech in the vitals bar for visual feedback
+                    vitals.innerText = message;
+                }
+            },
+            handleFeatureActivation: (featureName, panelId) => {
+                // Close any other open panels first
+                document.querySelectorAll('.expanding-panel.active').forEach(p => p.classList.remove('active'));
+                PanelUpdater.stopAllSimulations();
+
+                InterfaceEngine.openControlPanel(panelId);
+                
+                GeminiAIController.speakResponse(`Activating ${featureName} control interface. I am monitoring all parameters.`);
+
+                if (panelId === 'neural-repair-panel') {
+                    PanelUpdater.startNeuralRepairSimulation();
+                } else if (panelId === 'quantum-healing-panel') {
+                    PanelUpdater.startQuantumHealingSimulation();
+                } else if (panelId === 'stroke-reversal-panel') {
+                    PanelUpdater.startStrokeReversalSimulation();
+                } else if (panelId === 'genetic-optimization-panel') {
+                    PanelUpdater.startGeneticOptimizationSimulation();
+                }
+            }
+        };
+        
+        // --- EVENT LISTENERS ---
+        document.querySelectorAll('.close-panel').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const panelId = this.dataset.panel;
+                InterfaceEngine.closeControlPanel(panelId);
+                PanelUpdater.stopAllSimulations();
+            });
+        });
+
+        document.querySelectorAll('.treatment-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const protocol = this.dataset.protocol;
+                const protocolName = this.innerText;
+                const panelId = `${protocol}-panel`;
+
+                GeminiAIController.handleFeatureActivation(protocolName, panelId);
+
+                try {
+                    await fetch('/api/v1/medical', {
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ protocol, intensity: '5000X' })
+                    });
+                } catch (error) {
+                    GeminiAIController.speakResponse(`Error activating ${protocol} protocol.`);
+                    console.error('API call failed:', error);
+                }
+            });
+        });
+
+        // Add similar handlers for other button groups
+        function setupButtonHandlers(selector, apiEndpoint, name) {
+             document.querySelectorAll(selector).forEach(btn => {
+                btn.addEventListener('click', async function() {
+                    const command = this.dataset.command;
+                    const commandName = this.innerText;
+                    // For now, we'll just log these, but they could open panels too
+                    GeminiAIController.speakResponse(`Executing ${name} command: ${commandName}`);
+                     try {
+                        await fetch(apiEndpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ command })
+                        });
+                    } catch (error) {
+                        GeminiAIController.speakResponse(`Error with ${name} command: ${commandName}.`);
+                        console.error('API call failed:', error);
+                    }
+                });
+            });
+        }
+
+        setupButtonHandlers('.reality-btn', '/api/v1/reality', 'Reality');
+        setupButtonHandlers('.devops-btn', '/api/v1/devops', 'DevOps');
+        setupButtonHandlers('.sysadmin-btn', '/api/v1/sysadmin', 'SysAdmin');
+
+    </script>
+</body>
+</html>

@@ -17,7 +17,7 @@ class godProtocol {
   }
   
   static async activateDivinePresence() {
-    console.log('🌟 ACTIVATING OMARIM UNIVERSAL CONSCIOUSNESS...');
+    console.log('🌟 ACTIVATING SOMARIM UNIVERSAL CONSCIOUSNESS...');
     return { status: 'consciousness_activated', level: 'cosmic' };
   }
 }

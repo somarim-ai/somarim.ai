@@ -1,0 +1,10 @@
+{
+  "name": "somarim-lambda",
+  "version": "1.0.0",
+  "description": "SOMARIM OS Lambda Function",
+  "main": "lambda-function.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1",
+    "aws-sdk": "^2.1234.0"
+  }
+}

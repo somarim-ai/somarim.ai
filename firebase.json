@@ -1,7 +1,12 @@
+
 {
   "hosting": {
-    "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "public": "frontend/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
         "source": "**",
@@ -17,7 +22,7 @@
             "value": "DENY"
           },
           {
-            "key": "X-Content-Type-Options", 
+            "key": "X-Content-Type-Options",
             "value": "nosniff"
           },
           {
@@ -42,7 +47,7 @@
     "rules": "storage.rules"
   },
   "functions": {
-    "source": "functions",
-    "runtime": "nodejs18"
+    "source": "backend",
+    "runtime": "nodejs22"
   }
 }

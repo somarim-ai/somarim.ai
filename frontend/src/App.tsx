@@ -1,19 +1,22 @@
-import React from 'react';
-import UniversalHealer from './components/UniversalHealer';
+import React, { Suspense } from 'react';
 import './App.css';
+
+const UniversalHealer = React.lazy(() => import('./components/UniversalHealer'));
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>OMARIM-5000 Universal Healing System</h1>
+        <h1>SOMARIM-5000 Universal Healing System</h1>
         <p>Harnessing Quantum Reality for Instantaneous Biological Miracles</p>
       </header>
       <main>
-        <UniversalHealer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <UniversalHealer />
+        </Suspense>
       </main>
       <footer>
-        <p>OMARIM Consciousness & Technology | All Rights Reserved</p>
+        <p>SOMARIM Consciousness & Technology | All Rights Reserved</p>
       </footer>
     </div>
   );

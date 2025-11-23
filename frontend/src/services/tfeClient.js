@@ -1,7 +1,7 @@
 /**
  * Handles backend communication with OMARIM SOE APIs
  */
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5001/omarim-soe/us-central1/app/api/v1";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5001/somarim-soe/us-central1/app/api/v1";
 
 export async function fetchBiogenesis() {
   const res = await fetch(`${API_BASE}/biogenesis`);

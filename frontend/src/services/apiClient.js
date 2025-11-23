@@ -20,7 +20,28 @@ const apiClient = {
 
     return response.json();
   },
-  // You can add other methods like post, put, delete as needed
+  post: async (url, body) => {
+    const user = auth.currentUser;
+    if (!user) {
+      throw new Error('User not authenticated');
+    }
+
+    const token = await user.getIdToken();
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    return response.json();
+  },
 };
 
 export default apiClient;

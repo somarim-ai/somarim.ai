@@ -1,42 +1,304 @@
-[debug] [2025-11-18T13:09:10.246Z] ----------------------------------------------------------------------
-[debug] [2025-11-18T13:09:10.248Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/f77kilzcw5hh2gidh22k6pj8cp7pxp7h-firebase-tools-14.22.0/lib/node_modules/firebase-tools/lib/bin/firebase.js emulators:start
-[debug] [2025-11-18T13:09:10.248Z] CLI Version:   14.22.0
-[debug] [2025-11-18T13:09:10.248Z] Platform:      linux
-[debug] [2025-11-18T13:09:10.248Z] Node Version:  v20.19.1
-[debug] [2025-11-18T13:09:10.248Z] Time:          Tue Nov 18 2025 13:09:10 GMT+0000 (Coordinated Universal Time)
-[debug] [2025-11-18T13:09:10.248Z] ----------------------------------------------------------------------
+[debug] [2025-11-23T08:37:00.645Z] ----------------------------------------------------------------------
+[debug] [2025-11-23T08:37:00.646Z] Command:       /nix/store/6ljnnmh7di4dyalyhb08jk6zvh05pk79-nodejs-20.19.5/bin/node /home/user/.global_modules/bin/firebase emulators:start
+[debug] [2025-11-23T08:37:00.647Z] CLI Version:   14.26.0
+[debug] [2025-11-23T08:37:00.647Z] Platform:      linux
+[debug] [2025-11-23T08:37:00.647Z] Node Version:  v20.19.5
+[debug] [2025-11-23T08:37:00.647Z] Time:          Sun Nov 23 2025 08:37:00 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-11-23T08:37:00.647Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2025-11-18T13:09:10.250Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2025-11-18T13:09:10.501Z] No OAuth tokens found
-[debug] [2025-11-18T13:09:10.501Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:00.881Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:00.882Z] No OAuth tokens found
 [error] Failed to fetch Firebase Project from current Studio Workspace: Unable to refresh auth: not yet authenticated.
-[debug] [2025-11-18T13:09:10.506Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2025-11-18T13:09:10.745Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2025-11-18T13:09:10.745Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2025-11-18T13:09:20.502Z] Running auto auth
+[debug] [2025-11-23T08:37:00.886Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-11-23T08:37:00.753Z] ----------------------------------------------------------------------
+[debug] [2025-11-23T08:37:00.754Z] Command:       /nix/store/6ljnnmh7di4dyalyhb08jk6zvh05pk79-nodejs-20.19.5/bin/node /home/user/.global_modules/bin/firebase emulators:start
+[debug] [2025-11-23T08:37:00.755Z] CLI Version:   14.26.0
+[debug] [2025-11-23T08:37:00.755Z] Platform:      linux
+[debug] [2025-11-23T08:37:00.755Z] Node Version:  v20.19.5
+[debug] [2025-11-23T08:37:00.755Z] Time:          Sun Nov 23 2025 08:37:00 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-11-23T08:37:00.755Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-23T08:37:00.982Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:00.982Z] No OAuth tokens found
+[error] Failed to fetch Firebase Project from current Studio Workspace: Unable to refresh auth: not yet authenticated.
+[debug] [2025-11-23T08:37:00.987Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-11-23T08:37:09.917Z] Running auto auth
+[debug] [2025-11-23T08:37:09.917Z] Running auto auth
 [info] i  emulators: Starting emulators: functions, eventarc, tasks, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, eventarc, tasks, extensions"}}
-[debug] [2025-11-18T13:09:20.518Z] No OAuth tokens found
-[debug] [2025-11-18T13:09:20.519Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe [none]
-[debug] [2025-11-18T13:09:20.703Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe 200
-[debug] [2025-11-18T13:09:20.703Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe {"projectNumber":"764801755640","projectId":"omarim-soe","lifecycleState":"ACTIVE","name":"OMARIM SOE","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-13T02:11:55.484983Z"}
-[debug] [2025-11-18T13:09:20.709Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2025-11-18T13:09:20.713Z] Emulator locator file path: /tmp/hub-omarim-soe.json
-[debug] [2025-11-18T13:09:20.713Z] [hub] writing locator at /tmp/hub-omarim-soe.json
-[debug] [2025-11-18T13:09:20.718Z] [Extensions] Started Extensions emulator, this is a noop.
-[debug] [2025-11-18T13:09:20.719Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[info] i  emulators: Starting emulators: functions, eventarc, tasks, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, eventarc, tasks, extensions"}}
+[debug] [2025-11-23T08:37:09.930Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:09.931Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe [none]
+[debug] [2025-11-23T08:37:09.932Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:09.933Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe [none]
+[debug] [2025-11-23T08:37:10.111Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe 200
+[debug] [2025-11-23T08:37:10.111Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe {"projectNumber":"764801755640","projectId":"omarim-soe","lifecycleState":"ACTIVE","name":"SOMARIM","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-13T02:11:55.484983Z"}
+[debug] [2025-11-23T08:37:10.116Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-11-23T08:37:10.120Z] Emulator locator file path: /tmp/hub-omarim-soe.json
+[debug] [2025-11-23T08:37:10.120Z] [hub] writing locator at /tmp/hub-omarim-soe.json
+[debug] [2025-11-23T08:37:10.126Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2025-11-23T08:37:10.127Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect"}}
+[debug] [2025-11-23T08:37:10.555Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe 200
+[debug] [2025-11-23T08:37:10.556Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/omarim-soe {"projectNumber":"764801755640","projectId":"omarim-soe","lifecycleState":"ACTIVE","name":"SOMARIM","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-13T02:11:55.484983Z"}
+[warn] ⚠  hub: emulator hub unable to start on port 4400, starting on 4401 instead. {"metadata":{"emulator":{"name":"hub"},"message":"emulator hub unable to start on port 4400, starting on 4401 instead."}}
+[debug] [2025-11-23T08:37:10.561Z] assigned listening specs for emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4401}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-11-23T08:37:10.564Z] Emulator locator file path: /tmp/hub-omarim-soe.json
+[warn] ⚠  emulators: It seems that you are running multiple instances of the emulator suite for project omarim-soe. This may result in unexpected behavior. 
+[debug] [2025-11-23T08:37:10.564Z] [hub] writing locator at /tmp/hub-omarim-soe.json
+[debug] [2025-11-23T08:37:10.572Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2025-11-23T08:37:10.573Z] late-assigned ports for functions and eventarc emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4401}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect"}}
 [warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
-[debug] [2025-11-18T13:09:33.713Z] No OAuth tokens found
-[debug] [2025-11-18T13:09:33.713Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig [none]
-[debug] [2025-11-18T13:09:33.926Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig 200
-[debug] [2025-11-18T13:09:33.926Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig {"projectId":"omarim-soe","storageBucket":"omarim-soe.firebasestorage.app"}
-[debug] [2025-11-18T13:09:33.952Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
+[debug] [2025-11-23T08:37:26.042Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:26.042Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig [none]
+[debug] [2025-11-23T08:37:26.042Z] No OAuth tokens found
+[debug] [2025-11-23T08:37:26.042Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig [none]
+[debug] [2025-11-23T08:37:26.470Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig 200
+[debug] [2025-11-23T08:37:26.470Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig {"projectId":"omarim-soe","storageBucket":"omarim-soe.firebasestorage.app"}
+[debug] [2025-11-23T08:37:26.478Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig 200
+[debug] [2025-11-23T08:37:26.478Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe/adminSdkConfig {"projectId":"omarim-soe","storageBucket":"omarim-soe.firebasestorage.app"}
+[debug] [2025-11-23T08:37:26.485Z] Error: listen EADDRINUSE: address already in use 127.0.0.1:5001
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[info] i  ui: downloading ui-v1.15.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.15.0.zip..."}}
+[debug] [2025-11-23T08:37:26.488Z] Error: listen EADDRINUSE: address already in use 127.0.0.1:9299
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-11-23T08:37:26.490Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 
+[debug] [2025-11-23T08:37:26.492Z] Error: listen EADDRINUSE: address already in use 127.0.0.1:9499
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-11-23T08:37:26.495Z] Error: listen EADDRINUSE: address already in use 127.0.0.1:4500
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[info] i  ui: downloading ui-v1.15.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.15.0.zip..."}}
+[debug] [2025-11-23T08:37:26.502Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 
+[debug] [2025-11-23T08:37:26.709Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 200
+[debug] [2025-11-23T08:37:26.709Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip [stream]
+[debug] [2025-11-23T08:37:27.365Z] Data is 3538469
+[debug] [2025-11-23T08:37:27.365Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.365Z] [unzip] Processing entry: client/
+[debug] [2025-11-23T08:37:27.365Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/
+[debug] [2025-11-23T08:37:27.366Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2025-11-23T08:37:27.366Z] [unzip] Processing entry: client/favicon-16x16.png
+[debug] [2025-11-23T08:37:27.366Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.366Z] [unzip] Writing file: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/favicon-16x16.png
+[debug] [2025-11-23T08:37:27.367Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2025-11-23T08:37:27.367Z] [unzip] Processing entry: client/safari-pinned-tab.svg
+[debug] [2025-11-23T08:37:27.367Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.367Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/safari-pinned-tab.svg
+[debug] [2025-11-23T08:37:27.371Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2025-11-23T08:37:27.371Z] [unzip] Processing entry: client/favicon.ico
+[debug] [2025-11-23T08:37:27.371Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.371Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/favicon.ico
+[debug] [2025-11-23T08:37:27.374Z] [unzip] Entry: client/index.html (compressed_size=1364 bytes, uncompressed_size=3071 bytes)
+[debug] [2025-11-23T08:37:27.374Z] [unzip] Processing entry: client/index.html
+[debug] [2025-11-23T08:37:27.374Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.374Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/index.html
+[debug] [2025-11-23T08:37:27.375Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2025-11-23T08:37:27.375Z] [unzip] Processing entry: client/android-chrome-192x192.png
+[debug] [2025-11-23T08:37:27.375Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.376Z] [unzip] Writing file: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/android-chrome-192x192.png
+[debug] [2025-11-23T08:37:27.377Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2025-11-23T08:37:27.377Z] [unzip] Processing entry: client/apple-touch-icon.png
+[debug] [2025-11-23T08:37:27.377Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.377Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/apple-touch-icon.png
+[debug] [2025-11-23T08:37:27.395Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2025-11-23T08:37:27.395Z] [unzip] Processing entry: client/android-chrome-512x512.png
+[debug] [2025-11-23T08:37:27.395Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.395Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/android-chrome-512x512.png
+[debug] [2025-11-23T08:37:27.396Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2025-11-23T08:37:27.396Z] [unzip] Processing entry: client/manifest.json
+[debug] [2025-11-23T08:37:27.396Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.396Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/manifest.json
+[debug] [2025-11-23T08:37:27.397Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2025-11-23T08:37:27.397Z] [unzip] Processing entry: client/robots.txt
+[debug] [2025-11-23T08:37:27.397Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.398Z] [unzip] Writing file: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/robots.txt
+[debug] [2025-11-23T08:37:27.398Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2025-11-23T08:37:27.398Z] [unzip] Processing entry: client/mstile-150x150.png
+[debug] [2025-11-23T08:37:27.398Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.398Z] [unzip] Writing file: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/mstile-150x150.png
+[debug] [2025-11-23T08:37:27.399Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.399Z] [unzip] Processing entry: client/assets/
+[debug] [2025-11-23T08:37:27.399Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/
+[debug] [2025-11-23T08:37:27.399Z] [unzip] Entry: client/assets/index-BX-A56oj.js (compressed_size=582089 bytes, uncompressed_size=2092775 bytes)
+[debug] [2025-11-23T08:37:27.399Z] [unzip] Processing entry: client/assets/index-BX-A56oj.js
+[debug] [2025-11-23T08:37:27.399Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2025-11-23T08:37:27.399Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-BX-A56oj.js
+[debug] [2025-11-23T08:37:27.412Z] [unzip] Entry: client/assets/index-CjB9C900.css (compressed_size=35979 bytes, uncompressed_size=298654 bytes)
+[debug] [2025-11-23T08:37:27.412Z] [unzip] Processing entry: client/assets/index-CjB9C900.css
+[debug] [2025-11-23T08:37:27.412Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2025-11-23T08:37:27.413Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-CjB9C900.css
+[debug] [2025-11-23T08:37:27.415Z] [unzip] Entry: client/assets/index-BX-A56oj.js.map (compressed_size=2362482 bytes, uncompressed_size=10036679 bytes)
+[debug] [2025-11-23T08:37:27.415Z] [unzip] Processing entry: client/assets/index-BX-A56oj.js.map
+[debug] [2025-11-23T08:37:27.415Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets
+[debug] [2025-11-23T08:37:27.415Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/index-BX-A56oj.js.map
+[debug] [2025-11-23T08:37:27.471Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.471Z] [unzip] Processing entry: client/assets/extensions/
+[debug] [2025-11-23T08:37:27.471Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions/
+[debug] [2025-11-23T08:37:27.471Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2025-11-23T08:37:27.471Z] [unzip] Processing entry: client/assets/extensions/default-extension.png
+[debug] [2025-11-23T08:37:27.471Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions
+[debug] [2025-11-23T08:37:27.471Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/extensions/default-extension.png
+[debug] [2025-11-23T08:37:27.472Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.472Z] [unzip] Processing entry: client/assets/img/
+[debug] [2025-11-23T08:37:27.472Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/img/
+[debug] [2025-11-23T08:37:27.473Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2025-11-23T08:37:27.473Z] [unzip] Processing entry: client/assets/img/database.png
+[debug] [2025-11-23T08:37:27.473Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/img
+[debug] [2025-11-23T08:37:27.473Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/img/database.png
+[debug] [2025-11-23T08:37:27.474Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.474Z] [unzip] Processing entry: client/assets/provider-icons/
+[debug] [2025-11-23T08:37:27.474Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/
+[debug] [2025-11-23T08:37:27.474Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2025-11-23T08:37:27.474Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_saml.svg
+[debug] [2025-11-23T08:37:27.474Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.474Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_saml.svg
+[debug] [2025-11-23T08:37:27.475Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2025-11-23T08:37:27.475Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_phone.svg
+[debug] [2025-11-23T08:37:27.475Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.475Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_phone.svg
+[debug] [2025-11-23T08:37:27.476Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2025-11-23T08:37:27.476Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2025-11-23T08:37:27.476Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.476Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2025-11-23T08:37:27.476Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2025-11-23T08:37:27.477Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2025-11-23T08:37:27.477Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.477Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2025-11-23T08:37:27.477Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2025-11-23T08:37:27.477Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_apple.svg
+[debug] [2025-11-23T08:37:27.478Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.478Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_apple.svg
+[debug] [2025-11-23T08:37:27.478Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2025-11-23T08:37:27.478Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_github.svg
+[debug] [2025-11-23T08:37:27.479Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.479Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_github.svg
+[debug] [2025-11-23T08:37:27.479Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2025-11-23T08:37:27.479Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2025-11-23T08:37:27.479Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.479Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2025-11-23T08:37:27.480Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2025-11-23T08:37:27.481Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2025-11-23T08:37:27.481Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.481Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2025-11-23T08:37:27.481Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2025-11-23T08:37:27.481Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2025-11-23T08:37:27.482Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.482Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2025-11-23T08:37:27.482Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2025-11-23T08:37:27.482Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2025-11-23T08:37:27.482Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.483Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2025-11-23T08:37:27.483Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2025-11-23T08:37:27.483Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_email.svg
+[debug] [2025-11-23T08:37:27.483Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.483Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_email.svg
+[debug] [2025-11-23T08:37:27.484Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2025-11-23T08:37:27.484Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_google.svg
+[debug] [2025-11-23T08:37:27.484Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.484Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_google.svg
+[debug] [2025-11-23T08:37:27.485Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2025-11-23T08:37:27.485Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2025-11-23T08:37:27.485Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons
+[debug] [2025-11-23T08:37:27.485Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2025-11-23T08:37:27.485Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2025-11-23T08:37:27.486Z] [unzip] Processing entry: client/browserconfig.xml
+[debug] [2025-11-23T08:37:27.486Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.486Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/browserconfig.xml
+[debug] [2025-11-23T08:37:27.486Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2025-11-23T08:37:27.486Z] [unzip] Processing entry: client/favicon-32x32.png
+[debug] [2025-11-23T08:37:27.486Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/client
+[debug] [2025-11-23T08:37:27.486Z] [unzip] Writing file: /home/user/.cache/firebase/emulators/ui-v1.15.0/client/favicon-32x32.png
+[debug] [2025-11-23T08:37:27.487Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-11-23T08:37:27.487Z] [unzip] Processing entry: server/
+[debug] [2025-11-23T08:37:27.487Z] [unzip] mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/server/
+[debug] [2025-11-23T08:37:27.487Z] [unzip] Entry: server/server.mjs.map (compressed_size=217845 bytes, uncompressed_size=944978 bytes)
+[debug] [2025-11-23T08:37:27.487Z] [unzip] Processing entry: server/server.mjs.map
+[debug] [2025-11-23T08:37:27.487Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/server
+[debug] [2025-11-23T08:37:27.487Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/server/server.mjs.map
+[debug] [2025-11-23T08:37:27.493Z] [unzip] Entry: server/server.mjs (compressed_size=276407 bytes, uncompressed_size=933701 bytes)
+[debug] [2025-11-23T08:37:27.493Z] [unzip] Processing entry: server/server.mjs
+[debug] [2025-11-23T08:37:27.493Z] [unzip] else mkdir: /home/user/.cache/firebase/emulators/ui-v1.15.0/server
+[debug] [2025-11-23T08:37:27.493Z] [unzip] deflating: /home/user/.cache/firebase/emulators/ui-v1.15.0/server/server.mjs
+[debug] [2025-11-23T08:37:27.501Z] [Extensions] Connecting Extensions emulator, this is a noop.
 [info] i  functions: Watching "/home/user/omarim-sente/backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/user/omarim-sente/backend\" for Cloud Functions..."}}
-[error] ⬢  functions: Failed to load function definition from source: FirebaseError: `runtime` field is required but was not found in firebase.json or package.json.
-To fix this, add the following lines to the `functions` section of your firebase.json:
-"runtime": "nodejs22" or set the "engine" field in package.json
- {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: `runtime` field is required but was not found in firebase.json or package.json.\nTo fix this, add the following lines to the `functions` section of your firebase.json:\n\"runtime\": \"nodejs22\" or set the \"engine\" field in package.json\n"}}
-[debug] [2025-11-18T13:09:33.966Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[debug] [2025-11-23T08:37:27.505Z] Validating nodejs source
+[debug] [2025-11-23T08:37:27.871Z] > [functions] package.json contents: {
+  "name": "somarim-soe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy --only functions",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\""
+  },
+  "dependencies": {
+    "@azure/arm-resources": "^7.0.0",
+    "@azure/identity": "^4.13.0",
+    "@google-cloud/resource-manager": "^6.2.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+[debug] [2025-11-23T08:37:27.871Z] Building nodejs source
+[debug] [2025-11-23T08:37:27.872Z] Failed to find version of module node: reached end of search path /home/user/omarim-sente/backend/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2025-11-23T08:37:27.875Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-23T08:37:27.876Z] Found firebase-functions binary at '/home/user/omarim-sente/backend/node_modules/.bin/firebase-functions'
+[info] Serving at port 8580
+
+[info] [dotenv@17.2.3] injecting env (1) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+
+[debug] [2025-11-23T08:37:28.500Z] Got response from /__/functions.yaml {"endpoints":{"app":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[error] (node:111534) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[debug] [2025-11-23T08:37:28.907Z] Functions emulator received unknown request at path /
+[debug] [2025-11-23T08:37:28.980Z] Eventarc emulator received unknown request at path / {"metadata":{"emulator":{"name":"eventarc"},"message":"Eventarc emulator received unknown request at path /"}}
+[warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
+[info] ✔  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
+[info] ✔  functions[us-central1-app]: http function initialized (http://127.0.0.1:5001/omarim-soe/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"http function initialized (http://127.0.0.1:5001/omarim-soe/us-central1/app)."}}
+[debug] [2025-11-23T08:37:32.533Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -61,49 +323,249 @@ To fix this, add the following lines to the `functions` section of your firebase
 └─────────────────────────┴───────────────┴─────────────────────┘
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2025-11-18T13:09:38.021Z] Functions emulator received unknown request at path /
-[debug] [2025-11-18T13:09:38.258Z] Eventarc emulator received unknown request at path / {"metadata":{"emulator":{"name":"eventarc"},"message":"Eventarc emulator received unknown request at path /"}}
-[debug] [2025-11-18T13:14:22.436Z] ----------------------------------------------------------------------
-[debug] [2025-11-18T13:14:22.437Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/f77kilzcw5hh2gidh22k6pj8cp7pxp7h-firebase-tools-14.22.0/lib/node_modules/firebase-tools/lib/bin/firebase.js init
-[debug] [2025-11-18T13:14:22.438Z] CLI Version:   14.22.0
-[debug] [2025-11-18T13:14:22.438Z] Platform:      linux
-[debug] [2025-11-18T13:14:22.438Z] Node Version:  v20.19.1
-[debug] [2025-11-18T13:14:22.438Z] Time:          Tue Nov 18 2025 13:14:22 GMT+0000 (Coordinated Universal Time)
-[debug] [2025-11-18T13:14:22.438Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2025-11-18T13:14:22.636Z] No OAuth tokens found
-[debug] [2025-11-18T13:14:22.636Z] No OAuth tokens found
-[error] Failed to fetch Firebase Project from current Studio Workspace: Unable to refresh auth: not yet authenticated.
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+[debug] [2025-11-23T08:41:30.414Z] Functions emulator received unknown request at path /somarim-7a14f/us-central1/app/api/v1/sysadmin
+[debug] [2025-11-23T08:41:33.185Z] Functions emulator received unknown request at path /somarim-7a14f/us-central1/app/api/v1/sysadmin
+[debug] [2025-11-23T08:41:34.055Z] Functions emulator received unknown request at path /somarim-7a14f/us-central1/app/api/v1/sysadmin
+[debug] [2025-11-23T08:41:35.748Z] Functions emulator received unknown request at path /somarim-7a14f/us-central1/app/api/v1/sysadmin
+[debug] [2025-11-23T08:41:36.465Z] Functions emulator received unknown request at path /somarim-7a14f/us-central1/app/api/v1/sysadmin
+[debug] [2025-11-23T08:45:36.757Z] File /home/user/omarim-sente/backend/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/user/omarim-sente/backend/index.js changed, reloading triggers"}}
+[debug] [2025-11-23T08:45:37.759Z] Validating nodejs source
+[debug] [2025-11-23T08:45:38.137Z] > [functions] package.json contents: {
+  "name": "somarim-soe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy --only functions",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\""
+  },
+  "dependencies": {
+    "@azure/arm-resources": "^7.0.0",
+    "@azure/identity": "^4.13.0",
+    "@google-cloud/resource-manager": "^6.2.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+[debug] [2025-11-23T08:45:38.137Z] Building nodejs source
+[debug] [2025-11-23T08:45:38.137Z] Failed to find version of module node: reached end of search path /home/user/omarim-sente/backend/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2025-11-23T08:45:38.139Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-23T08:45:38.139Z] Found firebase-functions binary at '/home/user/omarim-sente/backend/node_modules/.bin/firebase-functions'
+[info] Serving at port 8650
 
-You're about to initialize a Firebase project in this directory:
+[error] /home/user/omarim-sente/backend/index.js:50
+  const result = await voice.speakCreationIntoExistence(req.body..command);
+                                                                 ^
 
-  /home/user/omarim-sente/backend
+SyntaxError: Unexpected token '.'
+    at wrapSafe (node:internal/modules/cjs/loader:1464:18)
+    at Module._compile (node:internal/modules/cjs/loader:1495:20)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at loadModule (/home/user/omarim-sente/backend/node_modules/firebase-functions/lib/runtime/loader.js:20:10)
+    at Object.loadStack (/home/user/omarim-sente/backend/node_modules/firebase-functions/lib/runtime/loader.js:119:20)
+    at /home/user/omarim-sente/backend/node_modules/firebase-functions/lib/bin/firebase-functions.js:76:48
 
-Before we get started, keep in mind:
+[debug] [2025-11-23T08:45:38.278Z] Got response code 400; body Failed to generate manifest from function source: Unexpected token '.'
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-11-23T08:47:29.078Z] File /home/user/omarim-sente/backend/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/user/omarim-sente/backend/index.js changed, reloading triggers"}}
+[debug] [2025-11-23T08:47:30.078Z] Validating nodejs source
+[debug] [2025-11-23T08:47:30.471Z] > [functions] package.json contents: {
+  "name": "somarim-soe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy --only functions",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\""
+  },
+  "dependencies": {
+    "@azure/arm-resources": "^7.0.0",
+    "@azure/identity": "^4.13.0",
+    "@google-cloud/resource-manager": "^6.2.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+[debug] [2025-11-23T08:47:30.471Z] Building nodejs source
+[debug] [2025-11-23T08:47:30.471Z] Failed to find version of module node: reached end of search path /home/user/omarim-sente/backend/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2025-11-23T08:47:30.472Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-23T08:47:30.473Z] Found firebase-functions binary at '/home/user/omarim-sente/backend/node_modules/.bin/firebase-functions'
+[info] Serving at port 8431
 
-  * You are initializing within an existing Firebase project directory
+[info] [dotenv@17.2.3] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
 
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] 
-[debug] [2025-11-18T13:17:36.988Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2025-11-18T13:17:36.989Z] > authorizing via signed-in user (okeynwaonye@gmail.com)
-[debug] [2025-11-18T13:17:36.989Z] No OAuth tokens found
-[debug] [2025-11-18T13:17:36.989Z] No OAuth tokens found
-[debug] [2025-11-18T13:17:36.989Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2025-11-18T13:17:36.989Z] > authorizing via signed-in user (okeynwaonye@gmail.com)
-[debug] [2025-11-18T13:17:36.991Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe [none]
-[debug] [2025-11-18T13:17:37.270Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe 200
-[debug] [2025-11-18T13:17:37.270Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/omarim-soe {"projectId":"omarim-soe","projectNumber":"764801755640","displayName":"OMARIM SOE","name":"projects/omarim-soe","resources":{"hostingSite":"omarim-soe"},"state":"ACTIVE","etag":"1_81c2d424-7e24-4a7e-b9ce-14d5fb6780ef"}
-[info] i  Using project omarim-soe (OMARIM SOE) . 
-[info] 
-=== Emulators Setup
+[info] Project ID: omarim-soe
+
+[debug] [2025-11-23T08:47:31.121Z] Got response from /__/functions.yaml {"endpoints":{"app":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[error] (node:113837) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
+[info] ✔  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
+[debug] [2025-11-23T08:48:10.005Z] File /home/user/omarim-sente/backend/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/user/omarim-sente/backend/index.js changed, reloading triggers"}}
+[debug] [2025-11-23T08:48:11.006Z] Validating nodejs source
+[debug] [2025-11-23T08:48:11.383Z] > [functions] package.json contents: {
+  "name": "somarim-soe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy --only functions",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\""
+  },
+  "dependencies": {
+    "@azure/arm-resources": "^7.0.0",
+    "@azure/identity": "^4.13.0",
+    "@google-cloud/resource-manager": "^6.2.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+[debug] [2025-11-23T08:48:11.383Z] Building nodejs source
+[debug] [2025-11-23T08:48:11.383Z] Failed to find version of module node: reached end of search path /home/user/omarim-sente/backend/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2025-11-23T08:48:11.384Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-23T08:48:11.385Z] Found firebase-functions binary at '/home/user/omarim-sente/backend/node_modules/.bin/firebase-functions'
+[info] Serving at port 8246
+
+[info] [dotenv@17.2.3] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Project ID: omarim-soe
+
+[error] ReferenceError: ok is not defined
+    at Object.<anonymous> (/home/user/omarim-sente/backend/index.js:61:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at loadModule (/home/user/omarim-sente/backend/node_modules/firebase-functions/lib/runtime/loader.js:20:10)
+    at Object.loadStack (/home/user/omarim-sente/backend/node_modules/firebase-functions/lib/runtime/loader.js:119:20)
+    at /home/user/omarim-sente/backend/node_modules/firebase-functions/lib/bin/firebase-functions.js:76:48
+
+[debug] [2025-11-23T08:48:12.040Z] Got response code 400; body Failed to generate manifest from function source: ok is not defined
+[error] (node:114064) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-11-23T08:49:13.124Z] File /home/user/omarim-sente/backend/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/user/omarim-sente/backend/index.js changed, reloading triggers"}}
+[debug] [2025-11-23T08:49:14.125Z] Validating nodejs source
+[debug] [2025-11-23T08:49:14.493Z] > [functions] package.json contents: {
+  "name": "somarim-soe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy --only functions",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\""
+  },
+  "dependencies": {
+    "@azure/arm-resources": "^7.0.0",
+    "@azure/identity": "^4.13.0",
+    "@google-cloud/resource-manager": "^6.2.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+[debug] [2025-11-23T08:49:14.493Z] Building nodejs source
+[debug] [2025-11-23T08:49:14.493Z] Failed to find version of module node: reached end of search path /home/user/omarim-sente/backend/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2025-11-23T08:49:14.494Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-23T08:49:14.495Z] Found firebase-functions binary at '/home/user/omarim-sente/backend/node_modules/.bin/firebase-functions'
+[info] Serving at port 8190
+
+[info] [dotenv@17.2.3] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Project ID: omarim-soe
+
+[debug] [2025-11-23T08:49:15.170Z] Got response from /__/functions.yaml {"endpoints":{"app":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[error] (node:114391) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
+[info] ✔  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}

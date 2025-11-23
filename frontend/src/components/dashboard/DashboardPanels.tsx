@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 import HolisticVibe from './HolisticVibe';
@@ -9,9 +8,12 @@ interface PanelProps {
     color: THREE.Color;
     position: [number, number, number];
     title: string;
+    onClick: () => void;
 }
 
-const Panel: React.FC<PanelProps> = ({ shape, color, position, title }) => {
+const Panel: React.FC<PanelProps> = ({ shape, color, position, title, onClick }) => {
+    const [hovered, setHover] = useState(false);
+
     let geometry;
     switch (shape) {
         case 'hexagon':
@@ -30,17 +32,36 @@ const Panel: React.FC<PanelProps> = ({ shape, color, position, title }) => {
             geometry = <boxGeometry args={[3, 3, 0.1]} />;
     }
 
-  return (
-    <group position={position}>
-      <mesh>
-        {geometry}
-        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.5} side={THREE.DoubleSide} />
-      </mesh>
-      <Text position={[0, 0, 0.2]} fontSize={0.3} color="white" anchorX="center" anchorY="middle">
-        {title}
-      </Text>
-    </group>
-  );
+    const handlePointerOver = () => {
+        setHover(true);
+        document.body.style.cursor = 'pointer';
+    };
+
+    const handlePointerOut = () => {
+        setHover(false);
+        document.body.style.cursor = 'auto';
+    };
+
+    return (
+        <group position={position}>
+            <mesh
+                onClick={onClick}
+                onPointerOver={handlePointerOver}
+                onPointerOut={handlePointerOut}
+            >
+                {geometry}
+                <meshStandardMaterial
+                    color={color}
+                    emissive={color}
+                    emissiveIntensity={hovered ? 1 : 0.5}
+                    side={THREE.DoubleSide}
+                />
+            </mesh>
+            <Text position={[0, 0, 0.2]} fontSize={0.3} color="white" anchorX="center" anchorY="middle">
+                {title}
+            </Text>
+        </group>
+    );
 };
 
 interface PanelData {
@@ -50,7 +71,11 @@ interface PanelData {
     title: string;
 }
 
-export default function DashboardPanels() {
+interface DashboardPanelsProps {
+    onPanelClick: (position: [number, number, number]) => void;
+}
+
+export default function DashboardPanels({ onPanelClick }: DashboardPanelsProps) {
     const panels: PanelData[] = [
         { shape: 'hexagon', color: 'neon-green', position: [-8, 5, 0], title: 'BioGenesis' },
         { shape: 'rectangle', color: 'neon-orange', position: [8, 5, 0], title: 'SystemsMatrix' },
@@ -80,6 +105,7 @@ export default function DashboardPanels() {
           color={colorMap[panel.color]}
           position={panel.position}
           title={panel.title}
+          onClick={() => onPanelClick(panel.position)}
         />
       ))}
       <HolisticVibe />

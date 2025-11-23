@@ -1,4 +1,4 @@
-const SOMARIMIntegration = require('../core/somarim_integration');
+const SOMARIMIntegration = require('../core/ssomarim_integration');
 
 class SOMARIMModeConsciousness {
   constructor() {

@@ -1,57 +1,44 @@
 import React, { Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
-import { ARButton, XR } from '@react-three/xr';
+import { ARButton, VRButton, XR } from '@react-three/xr';
 
 import CognitionSphere from './CognitionSphere';
-import PanelBioGenesis from './dashboard/PanelBioGenesis';
-import PanelSystemsMatrix from './dashboard/PanelSystemsMatrix';
-import PanelOmniCore from './dashboard/PanelOmniCore';
-import PanelQuantum from './dashboard/PanelQuantum';
+import DashboardPanels from './dashboard/DashboardPanels';
 import DashboardEffects from './DashboardEffects';
 import MultiUserPaths from './dashboard/MultiUserPaths';
-import VRComponent from './dashboard/VRComponent';
 import VoiceControl from './dashboard/VoiceControl';
 import GestureControl from './dashboard/GestureControl';
 import CameraControl from './dashboard/CameraControl';
 import LogoutButton from './LogoutButton';
+import useStore from '../store';
 
 const DashboardShell: React.FC = () => {
-  const [cameraTarget, setCameraTarget] = useState<[number, number, number] | null>(null);
+  const [cameraTarget, setCameraTarget] = useState<[number, number, number] | undefined>(undefined);
   const [zoom, setZoom] = useState<number>(1);
-  const [isBioGenesisOpen, setBioGenesisOpen] = useState<boolean>(true);
-  const [isSystemsMatrixOpen, setSystemsMatrixOpen] = useState<boolean>(true);
-  const [isOmniCoreOpen, setOmniCoreOpen] = useState<boolean>(true);
-  const [isQuantumOpen, setQuantumOpen] = useState<boolean>(true);
+  const store = useStore();
+
+  const handlePanelClick = (position: [number, number, number]) => {
+    setCameraTarget(position);
+    setZoom(2);
+  };
+
+  const resetView = () => {
+    setCameraTarget(undefined);
+    setZoom(1);
+  };
 
   const handleVoiceCommand = (command: string) => {
     if (command.includes("focus on biogenesis")) {
-      setCameraTarget([-5, 3, 0]);
+      setCameraTarget([-8, 5, 0]);
     } else if (command.includes("focus on systems")) {
-      setCameraTarget([5, 3, 0]);
+      setCameraTarget([8, 5, 0]);
     } else if (command.includes("focus on omnicore")) {
-      setCameraTarget([-5, -3, 0]);
+      setCameraTarget([-8, -5, 0]);
     } else if (command.includes("focus on quantum")) {
-      setCameraTarget([5, -3, 0]);
+      setCameraTarget([8, -5, 0]);
     } else if (command.includes("reset view")) {
-      setCameraTarget([0, 0, 15]);
-      setZoom(1);
-    } else if (command.includes("open biogenesis")) {
-      setBioGenesisOpen(true);
-    } else if (command.includes("close biogenesis")) {
-      setBioGenesisOpen(false);
-    } else if (command.includes("open systems")) {
-      setSystemsMatrixOpen(true);
-    } else if (command.includes("close systems")) {
-      setSystemsMatrixOpen(false);
-    } else if (command.includes("open omnicore")) {
-      setOmniCoreOpen(true);
-    } else if (command.includes("close omnicore")) {
-      setOmniCoreOpen(false);
-    } else if (command.includes("open quantum")) {
-      setQuantumOpen(true);
-    } else if (command.includes("close quantum")) {
-      setQuantumOpen(false);
+      resetView();
     }
   };
 
@@ -62,24 +49,21 @@ const DashboardShell: React.FC = () => {
   return (
     <>
       <ARButton />
+      {store.isVR && <VRButton />}
       <Canvas>
-        <XR store={undefined}>
-          <VRComponent />
+        <XR store={store}>
           <fog attach="fog" args={['#000510', 5, 20]} />
           <Suspense fallback={null}>
             <CognitionSphere position={[0, 0, 0]} />
 
-            {isBioGenesisOpen && <PanelBioGenesis position={[-5, 3, 0]} />}
-            {isSystemsMatrixOpen && <PanelSystemsMatrix position={[5, 3, 0]} />}
-            {isOmniCoreOpen && <PanelOmniCore position={[-5, -3, 0]} />}
-            {isQuantumOpen && <PanelQuantum position={[5, -3, 0]} />}
+            <DashboardPanels onPanelClick={handlePanelClick} />
 
             <LogoutButton position={[8, -5, 2]} />
-            
+
 
             <DashboardEffects />
             <MultiUserPaths />
-            <CameraControl target={cameraTarget ?? undefined} zoom={zoom} />
+            <CameraControl target={cameraTarget} zoom={zoom} />
           </Suspense>
         </XR>
       </Canvas>
@@ -87,6 +71,9 @@ const DashboardShell: React.FC = () => {
         <Link to="/council-review" style={{ color: 'white', textDecoration: 'none', padding: '10px', background: 'rgba(0,0,0,0.5)', borderRadius: '5px' }}>
             Council Review
         </Link>
+        <button onClick={resetView} style={{ color: 'white', background: 'rgba(0,0,0,0.5)', border: 'none', padding: '10px', borderRadius: '5px', marginLeft: '10px' }}>
+          Reset View
+        </button>
       </div>
       <VoiceControl onCommand={handleVoiceCommand} />
       <GestureControl onZoom={handleZoom} />

@@ -5,7 +5,7 @@ import { healingService } from '../services/healingService';
 
 const UniversalHealer: React.FC = () => {
   const [activeTreatment, setActiveTreatment] = useState<string | null>(null);
-  const [omarimMode, setOmarimMode] = useState(false);
+  const [somarimMode, setSomarimMode] = useState(false);
   const [treatmentProgress, setTreatmentProgress] = useState(0);
 
   const treatmentProtocols = [
@@ -35,17 +35,17 @@ const UniversalHealer: React.FC = () => {
     }
   ];
 
-  const activateOmarimMode = async () => {
+  const activateSomarimMode = async () => {
     try {
-      await healingService.activateOmarimMode();
-      setOmarimMode(true);
+      await healingService.activateSomarimMode();
+      setSomarimMode(true);
     } catch (error) {
-      console.error('Omarim mode activation failed:', error);
+      console.error('Somarim mode activation failed:', error);
     }
   };
 
   const startTreatment = async (protocolId: string) => {
-    if (!omarimMode) await activateOmarimMode();
+    if (!somarimMode) await activateSomarimMode();
     
     setActiveTreatment(protocolId);
     
@@ -80,11 +80,11 @@ const UniversalHealer: React.FC = () => {
 
   return (
     <div className="universal-healer">
-      {/* Omarim Mode Activation */}
-      {!omarimMode && (
-        <div className="omarim-activation-panel">
-          <button onClick={activateOmarimMode} className="activate-button">
-            ACTIVATE OMARIM MODE - 5000X POWER
+      {/* Somarim Mode Activation */}
+      {!somarimMode && (
+        <div className="somarim-activation-panel">
+          <button onClick={activateSomarimMode} className="activate-button">
+            ACTIVATE Somarim MODE - 5000X POWER
           </button>
         </div>
       )}

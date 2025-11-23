@@ -1,8 +1,15 @@
 const admin = require('firebase-admin');
 
-admin.initializeApp({
-  credential: admin.credential.applicationDefault()
-});
+if (process.env.NODE_ENV === 'test') {
+  const serviceAccount = require('../../serviceAccountKey.json');
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+} else {
+  admin.initializeApp({
+    credential: admin.credential.applicationDefault()
+  });
+}
 
 const authMiddleware = async (req, res, next) => {
   const idToken = req.headers.authorization?.split('Bearer ')?.[1];

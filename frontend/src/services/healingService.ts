@@ -1,8 +1,8 @@
 class HealingService {
   private baseUrl = '/api/v1/medical';
 
-  async activateOmarimMode(): Promise<any> {
-    const response = await fetch(`${this.baseUrl}/activate-omarim-mode`, {
+  async activateSomarimMode(): Promise<any> {
+    const response = await fetch(`${this.baseUrl}/activate-somarim-mode`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });

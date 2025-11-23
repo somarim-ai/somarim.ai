@@ -1,0 +1,78 @@
+swagger: "2.0"
+info:
+  title: "SOMARIM OS Control API"
+  description: "Universal Healing Consciousness Interface"
+  version: "1.0.0"
+host: "${API_ID}.execute-api.us-east-1.amazonaws.com"
+basePath: "/production"
+schemes:
+- "https"
+paths:
+  /command:
+    post:
+      summary: "Execute SOMARIM Command"
+      description: "Process voice or text commands through Gemini AI to control AWS infrastructure"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Command payload"
+        required: true
+        schema:
+          $ref: "#/definitions/CommandRequest"
+      responses:
+        "200":
+          description: "Command executed successfully"
+          schema:
+            $ref: "#/definitions/CommandResponse"
+        "500":
+          description: "Internal server error"
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:${AWS_ACCOUNT_ID}:function:somarim-lambda-exec/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
+definitions:
+  CommandRequest:
+    type: "object"
+    properties:
+      command:
+        type: "string"
+        description: "Voice or text command for SOMARIM"
+        example: "Deploy medical miracle engine to production"
+      parameters:
+        type: "object"
+        description: "Additional command parameters"
+      actionType:
+        type: "string"
+        enum: ["aws_operation", "healing_protocol", "reality_control", "system_management"]
+  
+  CommandResponse:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+      command:
+        type: "string"
+      geminiAnalysis:
+        $ref: "#/definitions/GeminiAnalysis"
+      awsResults:
+        type: "object"
+      timestamp:
+        type: "string"
+        format: "date-time"
+      executionId:
+        type: "string"
+  
+  GeminiAnalysis:
+    type: "object"
+    properties:
+      intent:
+        type: "string"
+      confidence:
+        type: "number"
+      awsCommands:
+        type: "array"
+        items:
+          type: "object"
+      requiresAWSAction:
+        type: "boolean"

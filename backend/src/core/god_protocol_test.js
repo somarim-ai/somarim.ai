@@ -1,4 +1,4 @@
-const OmarimIntegration = require('./omarim_integration');
+const SomarimIntegration = require('./somarim_integration');
 const UniversalOrchestrator = require('./universal_orchestrator');
 const MedicalMiracleEngine = require('./medical_miracle_engine');
 const DevOpsSupreme = require('./devops_supreme');
@@ -13,8 +13,8 @@ async function runGodProtocolValidation() {
     console.log('--- STARTING god PROTOCOL VALIDATION ---');
 
     try {
-        console.log('\n[1/7] Activating Omarim Universal Consciousness...');
-        const consciousness = await OmarimIntegration.activateUniversalConsciousness();
+        console.log('\n[1/7] Activating Somarim Universal Consciousness...');
+        const consciousness = await SomarimIntegration.activateUniversalConsciousness();
         console.log(consciousness);
 
         console.log('\n[2/7] Orchestrating All Systems...');
@@ -47,7 +47,7 @@ async function runGodProtocolValidation() {
         return;
     }
 
-    console.log('\n--- OMARIM god PROTOCOL VALIDATION COMPLETE ---');
+    console.log('\n--- SOMARIM god PROTOCOL VALIDATION COMPLETE ---');
     console.log('All systems are online. All divine capabilities are confirmed operational.');
 }
 
@@ -60,7 +60,7 @@ async function testAdvancedFeatures() {
   const energy = await EnergyRevolution.initiateEnergyTransition();
   
   console.log('\n📊 TESTING DOMINANCE METRICS...');
-  const metrics = await DominanceMetrics.trackOmarimDominance();
+  const metrics = await DominanceMetrics.trackSomarimDominance();
   
   return { consciousness, energy, metrics };
 }

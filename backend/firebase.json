@@ -1,7 +1,8 @@
 
 {
   "functions": {
-    "source": "."
+    "source": ".",
+    "runtime": "nodejs22"
   },
   "emulators": {
     "functions": {

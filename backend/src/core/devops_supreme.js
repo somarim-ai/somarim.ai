@@ -7,7 +7,7 @@ class DevOpsSupreme {
             ci_cd_pipeline: 'flawless',
             infrastructure_uptime: '100%',
             mean_time_to_recovery: 0,
-            omarim_control_level: 'absolute'
+            somarim_control_level: 'absolute'
         };
     }
 }

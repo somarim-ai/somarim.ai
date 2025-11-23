@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 
-export default function OMARIMLogo({ aiConfidence = 0.8 }) {
+export default function SOMARIMLogo({ aiConfidence = 0.8 }) {
   const group = useRef();
   const text = useRef();
   const pulseIntensity = 0.5 + aiConfidence * 0.5;
@@ -21,7 +21,7 @@ export default function OMARIMLogo({ aiConfidence = 0.8 }) {
     <group ref={group} position={[0, 3, 0]} scale={[1.5, 1.5, 1.5]}>
       <Text
         ref={text}
-        text="OMARIM"
+        text="SOMARIM"
         fontSize={1}
         color="#ffffff"
         material-emissive="#ffffff"

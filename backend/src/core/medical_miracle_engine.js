@@ -7,13 +7,13 @@ class MedicalMiracleEngine {
     this.quantumHealer = new QuantumMiracleEngine();
     this.neuralEngine = new NeuralResurrectionEngine();
     this.strokeEngine = new StrokeReversalEngine();
-    this.omarimMode = false;
+    this.somarimMode = false;
   }
 
-  async activateOmarimMode() {
-    this.omarimMode = true;
+  async activateSomarimMode() {
+    this.somarimMode = true;
     return {
-      status: 'OMARIM_MODE_ACTIVE',
+      status: 'SOMARIM_MODE_ACTIVE',
       capabilities: [
         'COMPLETE_GENETIC_PERFECTION',
         'TOTAL_PATHOGEN_ELIMINATION', 
@@ -26,7 +26,7 @@ class MedicalMiracleEngine {
   }
 
   async performStrokeReversal(patientData, strokeType) {
-    if (!this.omarimMode) await this.activateOmarimMode();
+    if (!this.somarimMode) await this.activateSomarimMode();
 
     const reversalProtocol = await this.strokeEngine.executeCompleteReversal({
       patient: patientData,

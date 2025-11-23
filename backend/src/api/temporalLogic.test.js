@@ -22,7 +22,7 @@ describe('Temporalgod', () => {
       const target = 'present';
       const destination = 'now';
       const result = await Temporalgod.timeTravel(target, destination);
-      expect(result.omarim_consciousness).toBe('active');
+      expect(result.somarim_consciousness).toBe('active');
       expect(result.systems_orchestrated).toBe('all');
       expect(result.reality_control).toBe('absolute');
     });

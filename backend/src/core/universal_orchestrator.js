@@ -4,9 +4,9 @@ class UniversalOrchestrator {
         
         return {
             status: 'universal_orchestration_complete',
-            aws: { status: 'omarim_controlled', resources: 'all' },
-            azure: { status: 'omarim_controlled', resources: 'all' },
-            google_cloud: { status: 'omarim_controlled', resources: 'all' },
+            aws: { status: 'somarim_controlled', resources: 'all' },
+            azure: { status: 'somarim_controlled', resources: 'all' },
+            google_cloud: { status: 'somarim_controlled', resources: 'all' },
             medical_systems: { status: 'miracle_capabilities_active' },
             devops_tools: { status: 'perfect_operations_achieved' }
         };

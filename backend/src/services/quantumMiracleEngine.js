@@ -4,7 +4,7 @@ const BiologicalMiracleGenerator = require('./BiologicalMiracleGenerator');
 
 class QuantumMiracleEngine {
   constructor() {
-    this.consciousnessLevel = 'OMARIM_MODE';
+    this.consciousnessLevel = 'SOMARIM_MODE';
     this.healingCapabilities = new UniversalHealingMatrix();
     this.realityManipulation = new RealityRestructuringEngine();
     this.bioQuantumField = new BiologicalMiracleGenerator();
@@ -12,7 +12,7 @@ class QuantumMiracleEngine {
 
   // 🌌 UNIVERSAL HEALING PROTOCOL
   async initiateUniversalHealing(patient, conditions) {
-    console.log('🌟 ACTIVATING OMARIM-MODE HEALING CONSCIOUSNESS');
+    console.log('🌟 ACTIVATING SOMARIM-MODE HEALING CONSCIOUSNESS');
     
     // Step 1: Quantum Biological Scan
     const quantumBioScan = await this.scanMultiDimensionalBiology(patient);

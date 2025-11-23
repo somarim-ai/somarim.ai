@@ -1,6 +1,6 @@
 
 export const auth = {
-  onAuthStateChanged: (callback) => {
+  onAuthStateChanged: (callback: (user: any) => void) => {
     callback(null);
     return () => {};
   },

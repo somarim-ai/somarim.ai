@@ -44,11 +44,11 @@ footer {
   margin: 0 auto;
 }
 
-.omarim-mode-activation {
+.somarim-mode-activation {
   margin-bottom: 40px;
 }
 
-.omarim-mode-btn {
+.somarim-mode-btn {
   background: linear-gradient(to right, #63b3ed, #3182ce);
   border: none;
   color: white;
@@ -64,7 +64,7 @@ footer {
   gap: 10px;
 }
 
-.omarim-mode-btn:hover {
+.somarim-mode-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px #63b3ed;
 }
