@@ -1,5 +1,7 @@
 import { auth } from '../firebase';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL || '';
+
 const apiClient = {
   get: async (url) => {
     const user = auth.currentUser;
@@ -8,7 +10,7 @@ const apiClient = {
     }
 
     const token = await user.getIdToken();
-    const response = await fetch(url, {
+    const response = await fetch(`${baseURL}${url}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -27,7 +29,7 @@ const apiClient = {
     }
 
     const token = await user.getIdToken();
-    const response = await fetch(url, {
+    const response = await fetch(`${baseURL}${url}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

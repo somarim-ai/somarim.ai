@@ -16,7 +16,7 @@
   "principleWeights": {
     "free_will": 30,
     "least_harm": 25,
-    "reality_destabilization": 20,
+    "reality_destabilization": 0,
     "biological_manipulation": 18,
     "organic_life": 15,
     "transparency": 10

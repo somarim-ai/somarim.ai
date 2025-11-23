@@ -1,0 +1,16 @@
+paths:
+  /medical/activate:
+    post:
+      summary: "Activate Medical Protocol"
+      x-amazon-apigateway-integration:
+        uri: arn:aws:lambda:us-east-1:123456789:function:medical-engine
+        httpMethod: POST
+        type: aws_proxy
+        
+  /quantum/control:
+    post:
+      summary: "Quantum Reality Control"
+      x-amazon-apigateway-integration:
+        uri: arn:aws:lambda:us-east-1:123456789:function:quantum-engine
+        httpMethod: POST
+        type: aws_proxy
