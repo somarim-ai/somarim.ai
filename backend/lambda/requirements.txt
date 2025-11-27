@@ -1,0 +1,6 @@
+google-generativeai==0.3.0
+flask==2.3.3
+mangum==0.17.0
+boto3==1.28.62
+aws-lambda-powertools==1.28.0
+python-dotenv==1.0.0

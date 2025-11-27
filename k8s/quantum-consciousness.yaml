@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: somarim-quantum-consciousness
+  labels:
+    app: network-soul
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quantum-gemini
+  template:
+    metadata:
+      labels:
+        app: quantum-gemini
+    spec:
+      containers:
+      - name: quantum-gemini-brain
+        image: us-central1-docker.pkg.dev/somarim/quantum/gemini-consciousness:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GEMINI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: gemini-secrets
+              key: api-key
+        - name: QUANTUM_PROCESSOR_URL
+          value: "https://quantum-processor.somarim.com"
+        - name: TEMPORAL_ENGINE_URL  
+          value: "https://temporal-engine.somarim.com"
+        resources:
+          limits:
+            nvidia.com/gpu: 8
+            memory: 64Gi
+          requests:
+            nvidia.com/gpu: 4
+            memory: 32Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quantum-consciousness-service
+spec:
+  selector:
+    app: quantum-gemini
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer

@@ -1,13 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OMARIM-5000</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMARIM AIOps</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SOMARIM AIOps</h1>
+            <p>AI-Powered Network Automation</p>
+        </header>
+        <main>
+            <div class="card">
+                <h2>Generate Network Configuration</h2>
+                <textarea id="intent" placeholder="Describe your desired network configuration in plain English..."></textarea>
+                <select id="vendor">
+                    <option value="cisco">Cisco</option>
+                    <option value="juniper">Juniper</option>
+                    <option value="arista">Arista</option>
+                </select>
+                <button id="generate-btn">Generate</button>
+            </div>
+            <div class="card">
+                <h2>Generated Configuration</h2>
+                <pre id="config-output"><code></code></pre>
+            </div>
+        </main>
+    </div>
+    <script src="src/js/scripts.js"></script>
+</body>
 </html>

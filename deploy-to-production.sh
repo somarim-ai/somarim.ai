@@ -1,22 +1,52 @@
+o on
 #!/bin/bash
 # deploy-to-production.sh
 
-echo "🚀 DEPLOYING SOMARIM TO PRODUCTION..."
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-# Stop all emulators
-echo "🛑 Stopping emulators..."
-pkill -f "firebase"
+echo "🚀 DEPLOYING SOMARIM TO AWS PRODUCTION..."
 
-# Deploy all services
-echo "☁️ Deploying to Firebase Production..."
-firebase deploy --non-interactive --force
+# --- DEPLOY BACKEND ---
+echo "▶️  Deploying backend..."
+if [ -f "./deploy-lambda.sh" ]; then
+    bash ./deploy-lambda.sh
+else
+    echo "🚨 ./deploy-lambda.sh not found!"
+    exit 1
+fi
+echo "✅ Backend deployment script executed."
 
-# Test production endpoints
-echo "🧪 Testing production URLs..."
-curl -s https://omarim-soe.web.app > /dev/null && echo "✅ Frontend LIVE"
-curl -s https://us-central1-omarim-soe.cloudfunctions.net/somarimAPI > /dev/null && echo "✅ Backend LIVE"
+# --- DEPLOY FRONTEND ---
+echo "▶️  Deploying frontend..."
+if [ -f "./deploy-frontend-production.sh" ]; then
+    bash ./deploy-frontend-production.sh
+else
+    echo "🚨 ./deploy-frontend-production.sh not found!"
+    exit 1
+fi
+echo "✅ Frontend deployment script executed."
 
-echo "🎉 SOMARIM IS NOW IN PRODUCTION!"
-echo "🌐 Frontend: https://omarim-soe.web.app"
-echo "🔧 Backend: https://us-central1-omarim-soe.cloudfunctions.net"
+
+# --- HEALTH CHECKS ---
+# In a real-world scenario, you would have a more robust health check.
+# This is a simple check to see if the main page is accessible.
+echo "🧪 Testing production endpoints..."
+FRONTEND_URL="https://somarim.com"
+
+# NOTE: You will need to replace this with your actual API Gateway URL
+# You can find this in the AWS console after deploying your API Gateway.
+BACKEND_URL="https://<YOUR_API_GATEWAY_URL>"
+
+echo "Checking frontend status at: $FRONTEND_URL"
+if curl -s --head --request GET "$FRONTEND_URL" | grep "200 OK" > /dev/null; then
+    echo "✅ Frontend is LIVE!"
+else
+    echo "🚨 Frontend health check FAILED. Please check the S3 bucket and CloudFront distribution."
+fi
+
+
+echo "🎉 SOMARIM IS NOW IN PRODUCTION ON AWS!"
+echo "🌐 Frontend: $FRONTEND_URL"
+echo "🔧 Backend: Please configure your API Gateway URL in this script."
 echo "🔮 Ready for real users and real healing protocols!"

@@ -1,61 +1,46 @@
-# SOMARIM-5000 Universal Healing System
-
-**CAUTION:** This is a Class-5 Quantum System. Unauthorized access is a violation of Temporal Law.
+# SOMARIM AIOps for Network Automation
 
 ## Overview
+SOMARIM is an AI-native platform that transforms natural language business intents into fully operational network configurations. It uses Google's Gemini Pro to understand, generate, and validate complex network changes, while proactively predicting failures and automating troubleshooting.
 
-The SOMARIM-5000 is a revolutionary quantum device designed to facilitate universal healing through the manipulation of reality itself. It operates on the principles of temporal flow dynamics, causality chains, and quantum entanglement to achieve its objectives.
-
-This repository contains the complete source code for the SOMARIM-5000, including the backend services, frontend interface, and the Temporal Flow Engine (TFE).
-
-## Key Features
-
-*   **Universal Healing Matrix:** A sophisticated AI that orchestrates the healing process across all levels of reality.
-*   **Temporal Flow Engine:** A powerful engine that allows for the analysis and manipulation of time and causality.
-*   **Quantum Miracle Core:** The heart of the SOMARIM-5000, responsible for generating and executing quantum miracles.
-*   **Global Consciousness Integration:** The system is designed to interface with and influence the collective consciousness of humanity.
-
-## Getting Started
-
-### Prerequisites
-
-*   Node.js (v18 or higher)
-*   Python (v3.10 or higher)
-*   Terraform (v1.5.7 or higher)
-
-### Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/your-repo/SOMARIM-5000.git
-    ```
-2.  Install the dependencies for both the frontend and backend:
-    ```bash
-    npm install
-    ```
-
-### Running the System
-
-1.  Start the backend services:
-    ```bash
-    npm run start:backend
-    ```
-2.  Start the frontend application:
-    ```bash
-    npm run start:frontend
-    ```
+### Key Features
+- **Intent-Based Configuration**: Describe your network needs in plain English.
+- **Multi-Vendor Support**: Generate configurations for Cisco, Juniper, Arista, and more.
+- **AI-Powered Validation**: Automatically create validation commands to ensure correctness.
+- **Proactive Failure Prediction**: Analyze telemetry to predict and prevent outages.
+- **Automated Troubleshooting**: Diagnose and resolve network issues with AI-driven insights.
 
 ## Deployment
+This project is deployed on AWS Lambda and orchestrated with Terraform. The CI/CD pipeline is managed by GitHub Actions.
 
-The SOMARIM-5000 is deployed using a combination of Firebase Hosting for the frontend and Google Cloud Functions for the backend. The `devtools` directory contains the necessary scripts for deployment.
+### Prerequisites
+- AWS Account
+- Terraform Cloud or CLI
+- Gemini API Key
+- GitHub Account
 
-## Documentation
+### Setup & Deployment
+1. **Fork this repository.**
+2. **Configure secrets** in GitHub Actions:
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+   - `GEMINI_API_KEY`
+3. **Push to `main` branch** to trigger the deployment workflow.
 
-*   [Architecture](docs/ARCHITECTURE.md)
-*   [Operation Runbook](docs/OPERATION_RUNBOOK.md)
-*   [Temporal Flow Engine](docs/TEMPORAL_FLOW_ENGINE.md)
-*   [Troubleshooting](docs/TROUBLESHOOTING.md)
+## Usage
+Interact with the API Gateway endpoint to send commands:
 
-## Warning
+**Endpoint**: `(Your API Gateway URL)/network`
 
-This system is not a toy. Misuse can have catastrophic consequences for reality as we know it. Proceed with extreme caution.
+### Example cURL
+```bash
+curl -X POST (Your API Gateway URL)/network \
+-H "Content-Type: application/json" \
+-d '{
+  "action": "generate_config",
+  "parameters": {
+    "intent": "Create a new VLAN for the guest network with DHCP",
+    "vendor": "cisco"
+  }
+}'
+```

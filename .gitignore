@@ -1,4 +1,19 @@
-backend/.env
-firebase-debug.log
-backend/firebase-debug.log
+
+# Dependencies
 node_modules
+/frontend/dist
+
+# Build files
+*.zip
+*.bak
+
+# Environment variables
+.env
+
+# Terraform state
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Old terraform directory
+terraform.old

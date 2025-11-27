@@ -1,0 +1,6 @@
+# config/terraform/backend.tfvars.example
+# Copy to backend.tfvars and customize
+
+bucket = "your-tfstate-bucket" # Create this bucket first
+key    = "terraform.tfstate"
+region = "us-east-1"
