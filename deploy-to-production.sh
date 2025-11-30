@@ -1,4 +1,3 @@
-o on
 #!/bin/bash
 # deploy-to-production.sh
 

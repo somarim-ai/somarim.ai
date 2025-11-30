@@ -6,39 +6,33 @@ set -e
 
 echo "🚀 DEPLOYING SOMARIM LAMBDA FUNCTION..."
 
+AWS_CLI="./aws/dist/aws"
+
 # Check if AWS CLI is installed
-if ! command -v aws &> /dev/null
-then
-    echo "🚨 AWS CLI could not be found. Please install it and configure your credentials."
+if ! [ -x $AWS_CLI ]; then
+    echo "🚨 AWS CLI executable not found at $AWS_CLI"
     exit 1
 fi
-
-cd backend/lambda
 
 # Install dependencies
-echo "📦 Installing dependencies..."
-if npm install; then
-    echo "✅ Dependencies installed."
-else
-    echo "🚨 Failed to install dependencies. Aborting deployment."
-    exit 1
-fi
+echo "📦 Installing dependencies in backend/lambda..."
+(cd backend/lambda && npm install)
 
 # Create deployment package
-ZIP_FILE="somarim-lambda.zip"
+ZIP_FILE="backend/lambda/somarim-lambda.zip"
 echo "📁 Creating deployment package: $ZIP_FILE..."
-zip -r "$ZIP_FILE" . -x "*.git*" "*.DS_Store*"
+(cd backend/lambda && zip -r somarim-lambda.zip . -x "*.git*" "*.DS_Store*")
 
 # Deploy to AWS Lambda
 echo "☁️ Uploading to AWS Lambda function: somarim-lambda-exec..."
-aws lambda update-function-code \
+$AWS_CLI lambda update-function-code \
     --function-name somarim-lambda-exec \
-    --zip-file fileb://"$ZIP_FILE" \
+    --zip-file fileb://$ZIP_FILE \
     --region us-east-1
 
 # Update environment variables
 echo "⚙️ Configuring environment..."
-aws lambda update-function-configuration \
+$AWS_CLI lambda update-function-configuration \
     --function-name somarim-lambda-exec \
     --environment "Variables={GEMINI_API_KEY=$GEMINI_API_KEY}" \
     --timeout 300 \
